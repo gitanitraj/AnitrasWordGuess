@@ -1,23 +1,52 @@
 package com.github.zipcodewilmington;
 
-/**
- * @author xt0fer
- * @version 1.0.0
- * @date 5/27/21 11:02 AM
- */
+import java.util.Scanner;
+
 public class WordGuess {
+    static String[] wordList = { "magical", "dainty", "maerl", "signal"};
+    static char[] solution;
+    static char[] playerGuesses;
+    static int triesLeft;
+
+    static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Welcome to Word Guess!");
-    
-    while (true) {
-        System.out.print("Guess a letter: ");
-        String letterToGuess = scanner.nextLine();
-        
-        if (userGuess.equalsIgnoreCase(letterToGuess)) {
-            System.out.println("Congratulations! You've guessed the word!");
-            break;
-        } else {
-            System.out.println("Wrong guess. Try again!");
+        String playAgain = "yes";
+
+        while (playAgain.equals("yes")) {
+            setupGame();
+            playGame();
+            System.out.print("Play again? (yes/no) ");
+            playAgain = scanner.nextLine().toLowerCase();
         }
+        System.out.println("Game Over!");
+        scanner.close();
+
+    }
+    public static void setupGame() {
+        String word = pickRandomWord();
+        solution = word.toCharArray();
+        playerGuesses = buildEmptyGuesses(solution.length);
+        triesLeft = solution.length;
+        System.out.println("Let's Play Wordguess game");
+        }
+    
+    public static String pickRandomWord() {
+        int index = (int) (Math.random() * wordList.length);
+        return wordList[index];    
+    }
+
+    public static char[] buildEmptyGuesses(int length) {
+        char[] guesses = new char[length];
+        for (int i = 0; i < length; i++) {
+            guesses[i] = '_';
+            }
+            return guesses;
+        }
+
+    public static void playGame(){
+
+        }
+       
 }
+
