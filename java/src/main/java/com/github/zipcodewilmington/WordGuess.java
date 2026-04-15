@@ -46,7 +46,7 @@ public class WordGuess {
 
     public static void playGame(){
         while (triesLeft > 0 && !new String(playerGuesses).equals(new String(solution))) {
-            printCurrentGuesses();
+            printPlayerGuesses();
             System.out.println("You have " + triesLeft + " tries left.");
             System.out.println("Enter your next guess: ");
 
@@ -62,7 +62,23 @@ public class WordGuess {
         }
 
         printResult();
-    }
        
+    }
+    
+    public static void processLetter(char letter) {
+        boolean found = false;
+        for (int i = 0; i < solution.length; i++) {
+            if (solution[i] == letter) {
+                playerGuesses[i] = letter;
+                found = true;
+            }
+        }
+
+        if (!found) {
+            triesLeft--;
+        }
+    }
+
+    
 }
 
