@@ -94,6 +94,14 @@ public class WordGuess {
         System.out.println();
     }
 
-    
+    public static void printResult() {
+        if (isWordGuessed()) {
+            printCurrentGuesses();
+            System.out.println("Congratulations, You Won!");
+        } else {
+            printCurrentGuesses();
+            System.out.println("Sorry, out of guesses. You Lost!");
+        }
+    }   
 }
 
