@@ -79,6 +79,21 @@ public class WordGuess {
         }
     }
 
+    public static boolean isWordGuessed() {
+        for (char c : playerGuesses) {
+            if (c == '_')
+                return false;
+        }
+            return true;
+    }
+    public static void printCurrentGuesses() {
+        System.out.println("Current Guesses: ");
+        for (char c : playerGuesses) {
+            System.out.print(c + " ");
+        }
+        System.out.println();
+    }
+
     
 }
 
