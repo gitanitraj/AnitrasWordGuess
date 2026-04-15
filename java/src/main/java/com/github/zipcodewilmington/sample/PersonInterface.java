@@ -1,6 +1,14 @@
 package com.github.zipcodewilmington.sample;
 
 public interface PersonInterface {
+    // Interface definition
+
+    /**
+     * Return the person's name
+     */
+
+    String getName();
+
     String getFirstName();
 
     void setFirstName(String firstName);
@@ -9,6 +17,12 @@ public interface PersonInterface {
 
     void setLastName(String lastName);
 
+    /**
+     * Return the person's current score
+     */
+
+    int getScore();
+
     Integer getAge();
 
     void setAge(Integer age);
@@ -16,3 +30,6 @@ public interface PersonInterface {
     @Override
     String toString();
 }
+
+
+
