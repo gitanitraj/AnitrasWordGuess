@@ -45,8 +45,24 @@ public class WordGuess {
         }
 
     public static void playGame(){
+        while (triesLeft > 0 && !new String(playerGuesses).equals(new String(solution))) {
+            printCurrentGuesses();
+            System.out.println("You have " + triesLeft + " tries left.");
+            System.out.println("Enter your next guess: ");
 
+            String input = scanner.nextLine().trim();
+
+            if (input.equals("-"))
+            break;
+            if (input.isEmpty())
+            continue;
+
+            char letter = input.charAt(0);
+            processLetter(letter);
         }
+
+        printResult();
+    }
        
 }
 
